@@ -5,6 +5,7 @@ namespace GameStore.WebUI.App_Start
 {
     using System;
     using System.Web;
+    using System.Web.Mvc;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -61,6 +62,7 @@ namespace GameStore.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            DependencyResolver.SetResolver(new GameStore.WebUI.Infrastructure.NinjectDependencyResolver(kernel));
         }        
     }
 }
