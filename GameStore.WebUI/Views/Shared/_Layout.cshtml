@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <title>@ViewBag.Title</title>   
+    <title>@ViewBag.Title</title>
 </head>
-    <body>
-        <div class="navbar navbar-inverse" role="navigation">
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">GameStore - a shop of computer games</a>
+            @Html.Action("Summary", "Cart")
         </div>
-        <div class="row panel">
-            <div id="categories" class="col-xs-3">
-                @Html.Action("Menu", "Nav")
-            </div>
-            <div class="col-xs-8">
-                @RenderBody()
-            </div>
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-xs-3">
+            @Html.Action("Menu", "Nav")
         </div>
-    </body>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
+</body>
 </html>
