@@ -10,7 +10,10 @@
     @Html.Partial("GameSummary", p)
 }
 
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
-</div>
+@if (Model.PagingInfo.TotalPages > 1)
+{
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new {page = x, category = Model.CurrentCategory}))
+    </div>
+}
 
