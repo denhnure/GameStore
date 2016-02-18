@@ -20,8 +20,8 @@ namespace GameStore.WebUI.Controllers
 
             IEnumerable<string> categories = repository.Games.Select(game => game.Category).
                 Distinct().OrderBy(x => x);
-
-            return PartialView(categories);
+            
+            return PartialView("FlexMenu", categories);
         }
-	}
+    }
 }
