@@ -22,6 +22,11 @@ namespace GameStore.WebUI.Controllers
             return View(repository.Games);
         }
 
+        public ViewResult Create()
+        {
+            return View("Edit", new Game());
+        }
+
         public ViewResult Edit(int gameId)
         {
             Game game = repository.Games.FirstOrDefault(g => g.GameId == gameId);
@@ -42,6 +47,18 @@ namespace GameStore.WebUI.Controllers
             {
                 return View(game);
             }
+        }
+
+        public ActionResult Delete(int gameId)
+        {
+            Game deletedGame = repository.DeleteGame(gameId);
+
+            if (deletedGame != null)
+            {
+                TempData["message"] = String.Format("Game \"{0}\" has been deleted", deletedGame.Name);
+            }
+
+            return RedirectToAction("Index");
         }
 	}
 }
