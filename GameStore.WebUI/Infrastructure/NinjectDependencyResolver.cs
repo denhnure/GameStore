@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GameStore.Domain.Concrete;
+using GameStore.WebUI.Infrastructure.Abstract;
+using GameStore.WebUI.Infrastructure.Concrete;
 using Ninject;
 using Moq;
 using GameStore.Domain.Abstract;
@@ -42,6 +44,8 @@ namespace GameStore.WebUI.Infrastructure
             };
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
         }
     }
 }

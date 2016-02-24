@@ -18,11 +18,12 @@
 <body>
     <div class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href=@Url.Action("Index", "Admin", null)>
                 <span class="hidden-xs">GameStore - a shop of computer games</span>
                 <div class="visible-xs">Game</div>
                 <div class="visible-xs">Store</div>
             </a>
+
             @Html.Action("Summary", "Cart")
         </div>
     </div>
